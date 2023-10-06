@@ -1,0 +1,155 @@
+  "editor.lineNumbers": "relative",
+
+  // Vim settings
+
+  "vim.foldfix": true,
+  "vim.highlightedyank.enable": true,
+  "vim.highlightedyank.textColor": "red",
+  "vim.hlsearch": true,
+  "vim.leader": "<space>",
+
+  "vim.normalModeKeyBindings": [
+
+    // #region Real Vim Keybindings
+
+    // Create a new line without being in insert mode
+    {
+      "before": ["<leader>", "o"],
+      "after": ["o", "<Esc>"]
+    },
+    {
+      "before": ["<leader>", "O"],
+      "after": ["O", "<Esc>"]
+    },
+
+    // Beginning of line
+    {
+      "before": ["<C-b>"],
+      "after": ["0", "w"]
+    },
+
+    // Commenting
+    {
+      "before": ["<leader>", "k"],
+      "commands": ["editor.action.commentLine"],
+      "when": "editorTextFocus && !editorReadonly" 
+    },
+
+    // #endregion
+
+    // #region LSP Information
+
+    // LSP Goto Defintion
+    {
+      "before": ["<leader>", "g", "d"],
+      "commands": ["editor.action.revealDefinition"],
+    },
+
+    // LSP Rename all
+    {
+      "before": ["<leader>", "r", "a"],
+      "commands": ["editor.action.rename"],
+    },
+
+    // LSP references
+    {
+      "before": ["<leader>", "g", "r"],
+      "commands": ["workbench.view.extension.references-view"]
+    },
+
+    // LSP Peek at Definition
+    {
+      "before": ["<leader>", "p", "d"],
+      "commands": ["editor.action.peekDefinition"]
+    },
+
+    // LSP Peek at implementation
+    {
+      "before": ["<leader>", "p", "i"],
+      "commands": ["editor.action.peekImplementation"]
+    },
+
+    // LSP Peek at References
+    {
+      "before": ["<leader>", "p", "r"],
+      "commands": ["editor.action.referenceSearch.trigger"]
+    },
+    // #endregion
+
+    // Search Information
+    {
+      "before": ["f", "a"],
+      "commands": ["workbench.view.search.focus"]
+    },
+
+    // Problem Toggle and go back to editor
+    {
+      "before": ["<leader>", "t", "t"],
+      "commands": ["workbench.action.problems.focus", "workbench.action.focusPreviousPart"]
+    },
+
+    // Git information
+    {
+      "before": ["<leader>", "g", "t"],
+      "commands": ["workbench.view.scm"]
+    },
+    
+    // Opening terminal
+    {
+      "before": ["<leader>", "t"],
+      "commands": ["workbench.action.terminal.focusTabs"]
+    }
+
+
+  ],
+
+  "vim.normalModeKeyBindingsNonRecursive": [
+
+    // List commands
+    {
+      "before": ["<leader>", "s"],
+      "commands": ["workbench.action.showCommands"]
+    },
+
+
+    // Trigger themes
+    {
+      "before": ["<leader>", "t", "h"],
+      "commands": ["workbench.action.selectTheme"]
+    },
+
+    // Editor binds
+    {
+      "before": ["<leader>", "h"],
+      "commands": ["workbench.action.previousEditor"]
+    },
+
+    {
+      "before": ["<leader>", "l"],
+      "commands": ["workbench.action.nextEditor"]
+    }
+
+  ],
+
+  "vim.insertModeKeyBindings": [
+    // Ergonomic escaping normal mode
+    {
+      "before": ["k", "j"],
+      "after": ["<Esc>"]
+    },
+  ],
+
+  "vim.visualModeKeyBindings": [
+    {
+      "before": ["<leader>", "/"],
+      "after": ["editor.action.commentLine"]
+    },
+
+    // Commenting
+    {
+      "before": ["<leader>", "k"],
+      "commands": ["editor.action.commentLine"],
+      "when": "editorTextFocus && !editorReadonly" 
+    }
+  ],
+
